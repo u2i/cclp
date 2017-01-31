@@ -1,0 +1,43 @@
+extends layout
+
+mixin svgTitle(text, textLength, x1, x2, x3, x4, x5, x6)
+  svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="80", class="sectionTitle")
+    defs
+      linearGradient(id="gradient" x1="0%" y1="0%" x2="0%" y2="100%" viewBox="0 0 400 80")
+        stop(offset="0%" style="stop-color: #387da9; stop-opacity:1")
+        stop(offset="40%" style="stop-color: #d4d4d4; stop-opacity:1")
+        stop(offset="42%" style="stop-color: #464151; stop-opacity:1")
+        stop(offset="54%" style="stop-color: #744c7a; stop-opacity:1")
+        stop(offset="80%" style="stop-color: #d7b0fb; stop-opacity:1")
+
+    image(xlink:href="images/stroke.png" width="100" height="30" x="150" y="20")
+    text(x="50%" y="35" textLength="#{textLength}" font-family="Orbitron" font-size="35" text-anchor="middle" fill="url(#gradient" stroke="rgba(0,0,0,0.36") #{text}
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x1}" y="14")
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x2}" y="14")
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x3}" y="14")
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x4}" y="14")
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x5}" y="14")
+    image(xlink:href="images/sparkle.png" width="20" height="20" x="#{x6}" y="14")
+
+block content
+  header
+    nav
+      a(href="#home") Home
+      a(href="#about") About
+      a(href="#previous-events") Previous Events
+      a(href="#video") Video
+      a(href="#register") Register
+  main
+    section#home
+
+    section#about
+      +svgTitle("About", 130, 127, 154, 180, 228, 500, 500)
+
+    section#previous-event
+      +svgTitle("Previous Events", 369, 7, 60, 152, 217, 275, 372)
+
+    section#video
+      +svgTitle("Video", 117, 139, 165, 201, 247, 500, 500)
+
+    section#register
+      +svgTitle("Register", 189, 97, 124, 149, 186, 237, 283)
