@@ -3,14 +3,159 @@
 
 body {
   background-color: #000;
+  padding-top: 90px;
 }
 
-svg.sectionTitle {
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left:0;
+
+  nav {
+    width: 100%;
+    text-align: center;
+    background: #000;
+    box-shadow: 0 5px 15px #000;
+
+    a {
+      display: inline-block;
+      width: 100px;
+      min-width: 70px;
+      height: 60px;
+      line-height: 60px;
+      vertical-align: middle;
+      text-align: center;
+      color: #fff;
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 1px;
+      text-decoration: none;
+
+      @media (max-width: 450px) {
+        width: 50px;
+        font-size: 12px;
+      }
+
+      &:hover {
+        text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff;
+      }
+    }
+  }
+}
+
+section {
+  min-height: 300px;
+  padding-bottom: 60px;
+
+  .content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+    color: #fff;
+    padding: 20px 50px;
+    text-align: center;
+    @media (max-width: 1000px) {
+      max-width: 740px;
+      padding: 20px 30px;
+    }
+    @media (max-width: 800px) {
+      max-width: 500px;
+      padding: 20px 30px;
+    }
+    @media (max-width: 560px) {
+      max-width: 92%;
+      padding: 20px 4%;
+    }
+  }
+
+  &#home {
+
+    .u2i {
+      margin: 0 auto;
+      width: 200px;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0.9;
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 950px) {
+        top: 50px;
+        width: 150px;
+        margin-left: -75px;
+      }
+
+      @media (max-width: 450px) {
+        top: 60px;
+        width: 100px;
+        margin-left: -50px;
+      }
+    }
+
+    #bgVideo {
+      position: relative;
+      z-index: -10;
+
+      video {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        max-width: 1280px;
+      }
+    }
+    .grid {
+      height: 200px;
+      width: 100%;
+      padding: 50px 0 50px;
+      margin-top: -150px;
+      background: url(../images/grid.png) no-repeat top center;
+      background-size: cover;
+
+      @media (max-width: 750px) {
+        margin-top: -100px;
+      }
+
+      @media (max-width: 550px) {
+        margin-top: -50px;
+      }
+    }
+  }
+}
+
+svg {
   display: block;
   margin: 0 auto;
-  text {
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 30px;
+  &.sectionTitle {
+    text {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 30px;
+    }
+  }
+  &.svgBtn {
+    cursor: pointer;
+    fill: none;
+    text {
+      font-size: 25px;
+      fill: #cb0b0b;
+
+      &.shadow {
+        fill: #4c0909;
+      }
+    }
+    .btnStroke {
+      stroke: #cb0b0b;
+
+    }
+    &:hover {
+      .btnStroke {
+        stroke: #4c0909;
+      }
+    }
   }
 }
