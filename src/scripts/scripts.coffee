@@ -1,4 +1,5 @@
 teammembers = 1
+
 jQuery(document).ready () ->
   console.log "test"
   submitFormListener()
@@ -10,7 +11,7 @@ submitFormListener = () ->
   form = jQuery('form')
   form.on 'submit', (e) ->
     e.preventDefault()
-    console.log e.serialize()
+    console.log e, form.serialize()
     return
   return
 
