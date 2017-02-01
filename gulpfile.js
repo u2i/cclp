@@ -6,7 +6,6 @@ var browserSync = require('browser-sync');
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
-
 gulp.task('styles', function() {
   var browsers = [
     '> 1%',
@@ -28,20 +27,17 @@ gulp.task('styles', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
-
 gulp.task('views', function(){
   return gulp.src([
-      '!src/views/layout.jade',
-      'src/views/*.jade'
+      'src/views/*.pug'
     ])
-    .pipe($.jade({
+    .pipe($.pug({
       pretty: true
     }))
     .on('error', $.util.log)
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({stream: true}));
 });
-
 
 gulp.task('images', function() {
   return gulp.src('src/images/**/*')
@@ -62,12 +58,10 @@ gulp.task('browser-sync', function() {
   });
 });
 
-
 gulp.task('watch', ['build'], function() {
   gulp.watch('src/**/*.less', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
-  gulp.watch('src/**/*.jade', ['views']);
-
+  gulp.watch('src/**/*.pug', ['views']);
   gulp.start('browser-sync');
 });
 
