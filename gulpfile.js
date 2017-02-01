@@ -27,6 +27,14 @@ gulp.task('styles', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('scripts', function() {
+  gulp.src('./src/scripts/*.coffee')
+    .pipe($.sourcemaps.init())
+    .pipe($.coffee({bare: true}))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('./build/scripts'));
+});
+
 gulp.task('views', function(){
   return gulp.src([
       'src/views/*.pug'
@@ -62,10 +70,10 @@ gulp.task('watch', ['build'], function() {
   gulp.watch('src/**/*.less', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/**/*.pug', ['views']);
+  gulp.watch('src/**/*.coffee', ['scripts']);
   gulp.start('browser-sync');
 });
 
-// JSHint grunfile.js
 gulp.task('selfcheck', function() {
   return gulp.src('gulpfile.js')
     .pipe($.jshint())
@@ -73,15 +81,12 @@ gulp.task('selfcheck', function() {
     .pipe($.jshint.reporter('fail'));
 });
 
-
 gulp.task('clean', function(cb) {
   var del = require('del');
   del(['build'], cb);
 });
 
-
-gulp.task('build', ['styles', 'views', 'images']);
-
+gulp.task('build', ['styles', 'scripts', 'views', 'images']);
 
 gulp.task('default', ['clean'], function() {
   gulp.start('watch');

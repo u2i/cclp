@@ -67,4 +67,18 @@ block content
     section#register.register
       +svgTitle("Register", 190, 57, 84, 109, 146, 197, 243)
       .content
-        | TBD
+        form(action="#")
+          .members
+            .form-group
+              label(for="name_1") Introduce yourself *
+              input(type="text", name="name_1", placeholder="What's your name", required)
+              input(type="email", name="email_1", placeholder="What's your email", required)
+
+          a(id="add-another", class="add-another", href="#", alt="Add another team member") + Add team member
+          .form-group
+            label(for="name") Do you have a team?
+            input(type="text", name="team", placeholder="Team name")
+          .form-group
+            input(type="submit", value="Let's rumble!")
+
+

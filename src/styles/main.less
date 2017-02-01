@@ -1,8 +1,17 @@
-
 @import (inline) 'normalize.css/normalize.css';
 
+@red: #cb0b0b;
+@darkRed: #4c0909;
+@black: #000000;
+@white: #ffffff;
+@pink: #ff00e4;
+
+@orbitron: 'Orbitron', sans-serif;
+@rockSalt: 'Rock Salt', serif;
+
+
 body {
-  background-color: #000000;
+  background-color: @black;
   padding-top: 90px;
 }
 
@@ -14,15 +23,15 @@ header {
   z-index: 100;
 
   nav {
-    background: #000000;
-    box-shadow: 0px 5px 15px #000000;
+    background: @black;
+    box-shadow: 0px 5px 15px @black;
     text-align: center;
     width: 100%;
 
     a {
-      color: #ffffff;
+      color: @white;
       display: inline-block;
-      font-family: 'Orbitron', sans-serif;
+      font-family: @orbitron;
       height: 60px;
       letter-spacing: 1px;
       line-height: 60px;
@@ -38,7 +47,7 @@ header {
       }
 
       &:hover {
-        text-shadow: 0px 0px 1px #ffffff, 0px 0px 3px #ffffff, 0px 0px 6px #ffffff;
+        text-shadow: 0px 0px 1px @white, 0px 0px 3px @white, 0px 0px 6px @white;
       }
     }
   }
@@ -49,7 +58,7 @@ section {
   padding-bottom: 60px;
 
   .content {
-    color: #ffffff;
+    color: @white;
     margin: 0px auto;
     max-width: 900px;
     padding: 20px 50px;
@@ -88,6 +97,58 @@ section {
         img {
           max-width: 300px;
         }
+      }
+    }
+  }
+
+  &.register {
+    background: url('../images/small-grid.png') center center no-repeat;
+    background-size: cover;
+
+    form {
+      margin: 0px auto;
+      width: 320px;
+
+      label {
+        color: @white;
+        display: block;
+        font-size: 16px;
+        margin: 10px 0px;
+        text-shadow: 0px 0px 15px @pink, 0px 0px 10px @pink, 0px 0px 5px @pink, 0px 0px 2px @pink;
+      }
+
+      input {
+        background: transparent;
+        border: 2px solid @red;
+        box-shadow: 0px 0px 10px @red, 0px 0px 6px @red, 0px 0px 3px @red;
+        box-sizing: border-box;
+        height: 50px;
+        margin-bottom: 10px;
+        outline: none;
+        padding: 10px;
+        width: 100%;
+
+        &[type='submit'] {
+          color: @red;
+          font-family: @rockSalt;
+          font-size: 20px;
+          line-height: 20px;
+          margin-top: 20px;
+          vertical-align: middle;
+
+          &:hover {
+            border-color: @darkRed;
+            box-shadow: none;
+            color: @darkRed;
+            text-shadow: 0px 0px 15px @red, 0px 0px 10px @red, 0px 0px 5px @red, 0px 0px 2px @red;
+          }
+        }
+      }
+
+      a.add-another {
+        color: @red;
+        font-size: 12px;
+        text-decoration: none;
       }
     }
   }
@@ -170,22 +231,22 @@ svg {
     fill: none;
 
     text {
-      fill: #cb0b0b;
+      fill: @red;
       font-size: 25px;
 
       &.shadow {
-        fill: #4c0909;
+        fill: @darkRed;
       }
     }
 
     .btnStroke {
-      stroke: #cb0b0b;
+      stroke: @red;
 
     }
 
     &:hover {
       .btnStroke {
-        stroke: #4c0909;
+        stroke: @darkRed;
       }
     }
   }
