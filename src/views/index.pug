@@ -61,6 +61,9 @@ block content
           - for (var i = 22; i > 0; i--)
             +galleryItem(i)
 
+        .gallery-arrow.gallery-prev
+        .gallery-arrow.gallery-next
+
     //- section#video
     //-   +svgTitle("Video", 117, 139, 165, 201, 247, 500, 500)
 
@@ -73,8 +76,6 @@ block content
               label(for="name_1") Introduce yourself *
               input(type="text", name="name_1", placeholder="What's your name", required)
               input(type="email", name="email_1", placeholder="What's your email", required)
-
-          a(id="add-another", class="add-another", href="#", alt="Add another team member") + Add team member
           .form-group
             label(for="name") Do you have a team?
             input(type="text", name="team", placeholder="Team name")

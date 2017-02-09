@@ -6,6 +6,11 @@ var browserSync = require('browser-sync');
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
+function onError(err) {
+  console.log(err);
+  this.emit('end');
+}
+
 gulp.task('styles', function() {
   var browsers = [
     '> 1%',
@@ -18,11 +23,13 @@ gulp.task('styles', function() {
       paths: ['bower_components']
     })
     .on('error', $.util.log))
+    .on('error', onError)
     .pipe($.postcss([
         require('autoprefixer-core')({
           browsers: browsers
         })
       ]))
+    .on('error', onError)
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({stream: true}));
 });
@@ -31,6 +38,7 @@ gulp.task('scripts', function() {
   gulp.src('./src/scripts/*.coffee')
     .pipe($.sourcemaps.init())
     .pipe($.coffee({bare: true}))
+    .on('error', onError)
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('./build/scripts'));
 });
@@ -42,7 +50,7 @@ gulp.task('views', function(){
     .pipe($.pug({
       pretty: true
     }))
-    .on('error', $.util.log)
+    .on('error', onError)
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({stream: true}));
 });
@@ -54,6 +62,7 @@ gulp.task('images', function() {
         convertPathData: false
       }]
     }))
+    .on('error', onError)
     .pipe(gulp.dest('build/images'));
 });
 
