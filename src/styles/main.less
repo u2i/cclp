@@ -5,14 +5,33 @@
 @black: #000000;
 @white: #ffffff;
 @pink: #ff00e4;
+@violet: #bb66ff;
+@lightviolet: #d2d2d2;
+@lightorange: #e8b04a;
+@lightblue: #8adbef;
 
 @orbitron: 'Orbitron', sans-serif;
 @rockSalt: 'Rock Salt', serif;
 
+.paragraphColor(@color, @color2) {
+  color: @color2;
+  text-shadow: 0px 0px 4px @color, 0px 0px 4px @color;
+}
 
 body {
   background-color: @black;
   padding-top: 90px;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: @white;
+  display: block;
+  font-family: @orbitron;
+  font-size: 16px;
+  margin: 10px 0px 30px;
+  text-shadow: 0px 0px 15px @red, 0px 0px 10px @red, 0px 0px 5px @red, 0px 0px 2px @red;
 }
 
 header {
@@ -62,8 +81,21 @@ section {
     margin: 0px auto;
     max-width: 900px;
     padding: 20px 50px;
-    text-align: center;
+    text-align: justify center;
     width: 100%;
+
+    #ty {
+      display: none;
+      p {
+        color: #3dff00;
+      }
+    }
+
+    .trailer {
+      font-style: italic;
+      color: red;
+      font-size: 14px;
+    }
 
     @media (max-width: 1000px) {
       max-width: 740px;
@@ -78,6 +110,61 @@ section {
     @media (max-width: 560px) {
       max-width: 92%;
       padding: 20px 4%;
+    }
+  }
+
+  &.video {
+    img {
+      height: auto;
+      width: 100%;
+    }
+
+    .video-container {
+      height: 0px;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: 100%;
+    }
+
+    .video {
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+  }
+
+  &.about {
+    margin-top: -230px;
+    overflow: hidden;
+    background: url('../images/small-grid.png') center center no-repeat;
+    background-size: cover;
+
+    p {
+      animation: textShadow 25s infinite;
+      animation-timing-function: linear;
+      color: #dcdcdc;
+      font-family: 'Aldrich', sans-serif;
+      font-size: 18px;
+      line-height: 28px;
+      margin: 0px auto 15px;
+      max-width: 640px;
+      padding: 0px 10px 10px;
+      text-align: center;
+
+      span {
+        color: @lightblue;
+
+        &.orange {
+          color: @lightorange;
+        }
+      }
+
+      @media (max-width: 450px) {
+
+      }
+
     }
   }
 
@@ -109,28 +196,23 @@ section {
     }
 
     .gallery {
+      box-shadow: 0px 0px 6px @black;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto;
+      max-width: 600px;
+      padding: 10px;
+      text-align: center;
 
+      img {
+        height: auto;
+        margin: 0px auto;
+        max-height: 300px;
+        max-width: 600px;
 
-      .slick-list {
-        padding: 15px;
-      }
-
-      .slick-slide {
-        opacity: 0.2;
-        transition: opacity 0.3s;
-      }
-
-      .slick-current {
-        opacity: 1;
-      }
-
-      .gallery-item {
-        box-shadow: 0px 0px 6px @black;
-        margin: 0px 30px;
-        padding: 10px;
-
-        img {
-          max-height: 300px;
+        @media (max-width: 600px) {
+          max-height: 180px;
+          max-width: 320px;
         }
       }
     }
@@ -139,6 +221,26 @@ section {
   &.register {
     background: url('../images/small-grid.png') center center no-repeat;
     background-size: cover;
+
+    .content {
+
+      p {
+        animation: textShadow 25s infinite;
+        animation-timing-function: linear;
+        color: #dcdcdc;
+        font-family: 'Aldrich', sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        margin: 0px auto 15px;
+        max-width: 640px;
+        padding: 0px 10px 10px;
+        text-align: center;
+
+        .email {
+          color: @violet;
+        }
+      }
+    }
 
     form {
       font-family: @orbitron;
@@ -310,5 +412,24 @@ svg {
         stroke: @darkRed;
       }
     }
+  }
+}
+
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0px 0px 4px @violet;
+  }
+
+  33% {
+    text-shadow: 0px 0px 4px @lightblue;
+  }
+
+  66% {
+    text-shadow: 0px 0px 4px @lightorange;
+  }
+
+  100% {
+    text-shadow: 0px 0px 4px @violet;
   }
 }

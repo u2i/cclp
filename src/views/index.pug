@@ -26,8 +26,7 @@ mixin svgBtn(text)
     text(x="150" y="65" transform="rotate(-5 0,50)" font-family="Rock Salt" text-anchor="middle")=text
 
 mixin galleryItem(i)
-  div(class="gallery-item item"+i)
-    img(src="images/photos/coding-challenge-"+i+".jpg")
+  img(src="images/photos/coding-challenge-"+i+".jpg")
 
 
 block content
@@ -35,8 +34,8 @@ block content
     nav
       a(href="#home") Home
       a(href="#about") About
-      a(href="#events") Events
-      //- a(href="#video") Video
+      //- a(href="#events") Events
+      a(href="#video") Video
       a(href="#register") Register
   main
     section#home.home
@@ -46,40 +45,84 @@ block content
       .u2i
         img(src="images/u2i-logo.png")
       .grid
-        a(href="#")
-          +svgBtn("Register Now")
+        //- a(href="#")
+        //-   +svgBtn("Register Now")
 
     section#about.about
       +svgTitle("About", 130, 87, 114, 140, 189, 500, 500)
+        p
+          | In times when anybody can become a programmer.
+          br
+          | When online courses can teach you webdev in a week.
+          br
+          | When people can write a fibonacci function under a minute.
+          br
+          | We decided to make programming great again.
+          br
+          | By making simple things hard again.
+        p
+          | Join us on a journey to the glorious 90's, when being a programmer was considered a hard job, Ace of Base ruled the charts and Java was the bleeding f*cking edge.
+        p
+          | Team up with 3 of your friends and face some of the easiest puzzles you can find in programing job interviews like reversing a string or deciding if it's a palindrome. But this time do it  within limited time, on a keyboard that makes funny noises and a screen that makes you think of that one time you took LSD because you thought it was candy.
+        p
+          | Get ready to go back to your highschool years and relive some of your worst nightmares like:
+          br
+          span letting your teammates down in a team based activity,
+          br
+          span getting your ass handed to you in a simple board game
+          br
+          span and being yelled at for failing at performing a seemingly simple task.
+          br
+          br
+          | Or win the challenge and fulfill some of your biggest fantasies like:
+          br
+          span.orange actually winning in a team based activity,
+          br
+          abbr(title="* metaphorically")
+            span.orange drinking wine from the skulls of your enemies
+          sup *
+          br
+          span.orange and proving to everyone else that you're nerdier than the The Klingon Language Institute.
+        p
+          | Prepare for the challenge that will test your programming skills, reflexes and above all else your sanity and patience. So suit up, dust of your bat'leth and join us in the epic u2i Coding Challenge.
+
+
+    //- section#events.events
+    //-   +svgTitle("Events", 147, 78, 130, 153, 221, 500, 500)
+    //-   .content
+    //-     a#gallery.gallery
+    //-       +galleryItem(5)
+
+    section#video.video
+      +svgTitle("Video", 115, 100, 134, 160, 205, 500, 500, 500)
       .content
-        | TBD
+        .video-container
+          iframe.video(width=560, height=315,src="https://www.youtube.com/embed/U9MHU40-bps?ecver=1", frameborder=0, allowfullscreen="true")
 
-    section#events.events
-      +svgTitle("Events", 147, 78, 130, 153, 221, 500, 500)
-      .content
-        .gallery
-          - for (var i = 22; i > 0; i--)
-            +galleryItem(i)
-
-        .gallery-arrow.gallery-prev
-        .gallery-arrow.gallery-next
-
-    //- section#video
-    //-   +svgTitle("Video", 117, 139, 165, 201, 247, 500, 500)
 
     section#register.register
       +svgTitle("Register", 190, 57, 84, 109, 146, 197, 243)
       .content
-        form(action="#")
+        p
+          | If you want to take part in this Epic Battle fill the form below
+          br
+          | or simply drop us a line at
+          span.email
+            |  cc@u2i.com
+        #ty
+          p
+            | Your entry has been submited, we'll contact you soon.
+        form#u2icc-form(method="POST", enctype="multipart/form-data")
           .members
             .form-group
-              label(for="name_1") Introduce yourself *
-              input(type="text", name="name_1", placeholder="What's your name", required)
-              input(type="email", name="email_1", placeholder="What's your email", required)
+              label(for="name") Introduce yourself *
+              input(type="text", name="name", placeholder="What's your name", required)
+              input(type="email", name="email", placeholder="What's your email", required)
           .form-group
-            label(for="name") Do you have a team?
+            label(for="team") Do you have a team?
             input(type="text", name="team", placeholder="Team name")
           .form-group
             input(type="submit", value="Let's rumble!")
-
+  footer
+    | &copy; 2017 u2i LLC. All rights reserved.
 
